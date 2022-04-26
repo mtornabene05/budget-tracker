@@ -1,10 +1,10 @@
-const APP_PREFIX = 'FoodEvent-';     
+const APP_PREFIX = 'BudgetTracker-';     
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
-  "./css/style.js",
+  "./css/styles.css",
     "./manifest.json",
     "./js/index.js",
     "./service-worker.js",
@@ -44,7 +44,8 @@ self.addEventListener('install', function (e) {
       console.log('installing cache : ' + CACHE_NAME)
       return cache.addAll(FILES_TO_CACHE)
     })
-  )
+  );
+  self.skipWaiting();
 })
 
 // Delete outdated caches
@@ -67,4 +68,6 @@ self.addEventListener('activate', function (e) {
       }));
     })
   );
+
+  self.clients.claim();
 });
