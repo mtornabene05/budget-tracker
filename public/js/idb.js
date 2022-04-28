@@ -78,7 +78,7 @@ function uploadBudgetTracker() {
                     //access the new_tracker object store
                     const ObjecttransStore = transaction.objectStore('new_tracker');
                     //clear all items in your store
-                    transObjectStore.clear();
+                    ObjecttransStore.clear();
 
                     alert('All saved transactions have been submitted!');
                 })
